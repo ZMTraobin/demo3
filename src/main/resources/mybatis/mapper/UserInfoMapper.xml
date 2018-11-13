@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.mapper.UserInfoDao" >
+<resultMap type="com.example.demo.entity.UserInfo" id="BaseResultMap">
+<id column="id" property="id" />
+<result column="age" property="age" />
+<result column="uname" property="uname" />
+<result column="password" property="password" />
+</resultMap>
+
+<sql id="columnParam">
+id as id,
+age as age,
+uname as uname,
+password as password
+</sql>
+
+<select id="findAll" resultMap="BaseResultMap">
+select 
+<include refid="columnParam"/>
+from com_cmig_zrgk_user
+</select>
+</mapper>
